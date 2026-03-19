@@ -17,8 +17,8 @@ export default function WeddingSection({ content = {} }: { content?: C }) {
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
       )}
-      <div className="absolute inset-0 bg-[rgba(8,8,8,0.64)]" />
-      <div className="relative z-10 max-w-[1170px] mx-auto px-6 flex flex-col gap-6 lg:gap-8 items-center text-white">
+      <div className="absolute inset-0 bg-white/80" />
+      <div className="relative z-10 max-w-[1170px] mx-auto px-6 flex flex-col gap-6 lg:gap-8 items-center text-[#141414]">
         <div className="text-center flex flex-col gap-6 lg:gap-10">
           <div className="flex flex-col gap-2 lg:gap-3">
             <div className="flex flex-col gap-2 lg:gap-3">
@@ -67,22 +67,22 @@ export default function WeddingSection({ content = {} }: { content?: C }) {
                 className="w-16 h-px"
                 style={{
                   background:
-                    "linear-gradient(to right, transparent, rgba(255,255,255,0.35))",
+                    "linear-gradient(to right, transparent, rgba(20,20,20,0.35))",
                 }}
               />
-              <div className="w-1.5 h-1.5 rounded-full bg-white/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#141414]/60" />
               <div
                 className="w-16 h-px"
                 style={{
                   background:
-                    "linear-gradient(to left, transparent, rgba(255,255,255,0.35))",
+                    "linear-gradient(to left, transparent, rgba(20,20,20,0.35))",
                 }}
               />
             </div>
           </Reveal>
         )}
         {(content.wedding_p1 || content.wedding_p2) && (
-          <div className="font-serif text-[16px] lg:text-[20px] text-white text-center max-w-[940px] flex flex-col gap-5 leading-[32px]">
+          <div className="font-serif text-[16px] lg:text-[20px] text-[#141414] text-center max-w-[940px] flex flex-col gap-5 leading-[32px]">
             {content.wedding_p1 && (
               <Reveal delay={220}>
                 <p>{content.wedding_p1}</p>
@@ -97,6 +97,7 @@ export default function WeddingSection({ content = {} }: { content?: C }) {
         )}
         <Reveal delay={320}>
           <BookNowButton
+            dark
             service={content.wedding_button_service || undefined}
           />
         </Reveal>

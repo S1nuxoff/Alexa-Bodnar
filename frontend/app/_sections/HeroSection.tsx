@@ -13,20 +13,19 @@ export default function HeroSection({ content = {} }: { content?: C }) {
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
       )}
-      <div className="absolute inset-0 bg-white/40" />
+      <div className="absolute inset-0 bg-[rgba(8,8,8,0.52)]" />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 lg:gap-[54px]">
         <Reveal delay={20} variant="softScale">
           <a href="/" className="block w-[165px] lg:w-[370px]">
             <img
               src="/images/logo.svg"
               alt="Alexa Bodnar Photography"
-              className="w-full"
+              className="w-full brightness-0 invert"
             />
           </a>
         </Reveal>
         <Reveal delay={140}>
           <BookNowButton
-            dark
             text={content.hero_button_text}
             href={content.hero_button_url}
           />

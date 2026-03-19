@@ -335,33 +335,40 @@ export default function GallerySection({
         </div>
 
         {/* CTA strip with parallax */}
-        <div className="relative w-full py-8 lg:py-12 flex flex-col items-center justify-center gap-4 overflow-hidden">
-          {content.gallery_cta_bg_url && (
-            <>
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `url(${content.gallery_cta_bg_url})`,
-                  backgroundAttachment: "fixed",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
-              <div className="absolute inset-0 bg-black/50" />
-            </>
-          )}
-          <p className="relative z-10 font-script text-[80px] lg:text-[120px] text-white text-center leading-none">
-            see more
-          </p>
-          {(content.gallery_button_text || content.gallery_button_url) && (
-            <a
-              href={content.gallery_button_url || "#"}
-              className="relative z-10 border-2 border-white text-white px-6 py-3 font-sans text-[13px] tracking-[0.15em] uppercase hover:opacity-70 transition-opacity"
-            >
-              {content.gallery_button_text || "Portfolio"}
-            </a>
-          )}
-        </div>
+        {(() => {
+          const hasBg = !!content.gallery_cta_bg_url;
+          const textColor = hasBg ? "text-white" : "text-[#141414]";
+          const borderColor = hasBg ? "border-white" : "border-[#141414]";
+          return (
+            <div className={`relative w-full flex flex-col items-center justify-center gap-4 overflow-hidden ${hasBg ? "py-10 lg:py-16" : "pt-2 pb-4 lg:pt-3 lg:pb-6"} ${hasBg ? "gap-8 lg:gap-12" : "gap-4"}`}>
+              {hasBg && (
+                <>
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage: `url(${content.gallery_cta_bg_url})`,
+                      backgroundAttachment: "fixed",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black/50" />
+                </>
+              )}
+              <p className={`relative z-10 font-script text-[80px] lg:text-[120px] text-center leading-none -my-4 lg:-my-6 ${textColor}`}>
+                see more
+              </p>
+              {(content.gallery_button_text || content.gallery_button_url) && (
+                <a
+                  href={content.gallery_button_url || "#"}
+                  className={`relative z-10 border-2 px-6 py-3 font-sans text-[13px] tracking-[0.15em] uppercase hover:opacity-70 transition-opacity ${textColor} ${borderColor}`}
+                >
+                  {content.gallery_button_text || "Portfolio"}
+                </a>
+              )}
+            </div>
+          );
+        })()}
       </section>
 
       {/* Lightbox */}
