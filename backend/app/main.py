@@ -23,7 +23,7 @@ async def lifespan(app: FastAPI):
     await mq.close()
 
 
-app = FastAPI(title="Alexa Bodnar Admin API", version="1.0.0", lifespan=lifespan, redirect_slashes=False)
+app = FastAPI(title="Alexa Bodnar Admin API", version="1.0.0", lifespan=lifespan, redirect_slashes=False, docs_url=None, redoc_url=None, openapi_url=None)
 
 app.add_middleware(
     CORSMiddleware,
