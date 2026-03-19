@@ -11,7 +11,7 @@ COPY . .
 RUN cp -r /app/uploads /app/uploads_seed
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
 
 EXPOSE 8000
 
