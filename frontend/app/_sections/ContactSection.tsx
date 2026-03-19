@@ -462,13 +462,11 @@ export default function ContactSection({ content = {} }: { content?: C }) {
             )}
           </div>
           <div className="flex flex-col gap-9">
-            {(content.contact_instagram_url || content.contact_instagram_label) && (
-              <Reveal delay={140}>
-                <a href={content.contact_instagram_url || "#"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 hover:opacity-70 transition-opacity">
-                  <img src="/images/instagram-icon.svg" alt="Instagram" className="w-[37.5px] h-[37.5px]" />
-                </a>
-              </Reveal>
-            )}
+            <Reveal delay={140}>
+              <a href={content.contact_instagram_url || "#"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 hover:opacity-70 transition-opacity">
+                <img src="/images/instagram-icon.svg" alt="Instagram" className="w-[37.5px] h-[37.5px]" />
+              </a>
+            </Reveal>
             {content.contact_photo_url && (
               <Reveal delay={190} variant="softScale">
                 <div className="w-full h-[208px] lg:h-[357px] rounded-[6px] overflow-hidden">
@@ -476,7 +474,7 @@ export default function ContactSection({ content = {} }: { content?: C }) {
                 </div>
               </Reveal>
             )}
-            <div className="flex flex-col gap-4 font-serif text-[16px] text-[#141414]">
+            <div className="flex flex-col gap-4 font-serif text-[16px] text-[#141414] items-center lg:items-start">
               {content.contact_address && (
                 <Reveal delay={230}>
                   <a href={`https://maps.google.com/?q=${encodeURIComponent(content.contact_address)}`} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">{content.contact_address}</a>

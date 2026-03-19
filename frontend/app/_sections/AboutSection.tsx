@@ -9,11 +9,11 @@ export default function AboutSection({ content = {} }: { content?: C }) {
 
   return (
     <section id="about" className="py-8 lg:py-20">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-10 flex flex-col lg:flex-row gap-8 lg:gap-16 items-end">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-10 flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-end">
         {/* Photo — left */}
         {content.about_photo_url && (
-          <Reveal delay={120} variant="softScale">
-            <div className="rounded-[6px] overflow-hidden w-full lg:w-[420px] h-[360px] lg:h-[580px] shrink-0">
+          <Reveal delay={120} variant="softScale" className="w-full lg:w-auto shrink-0">
+            <div className="rounded-[6px] overflow-hidden w-full lg:w-[420px] h-[480px] lg:h-[580px]">
               <img src={content.about_photo_url} alt="About Alexa" className="w-full h-full object-cover" />
             </div>
           </Reveal>

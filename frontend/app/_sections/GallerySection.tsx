@@ -1,5 +1,21 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
+
+function ChevronLeft() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  );
+}
+
+function ChevronRight() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  );
+}
 import Image from "next/image";
 
 export default function GallerySection({
@@ -152,17 +168,17 @@ export default function GallerySection({
                   type="button"
                   onClick={prevTablet}
                   aria-label="Previous gallery slide"
-                  className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/75 text-2xl text-[#141414] shadow transition-colors hover:bg-white"
+                  className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/75 text-[#141414] shadow transition-colors hover:bg-white"
                 >
-                  ‹
+                  <ChevronLeft />
                 </button>
                 <button
                   type="button"
                   onClick={nextTablet}
                   aria-label="Next gallery slide"
-                  className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/75 text-2xl text-[#141414] shadow transition-colors hover:bg-white"
+                  className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/75 text-[#141414] shadow transition-colors hover:bg-white"
                 >
-                  ›
+                  <ChevronRight />
                 </button>
               </>
             )}
@@ -222,17 +238,17 @@ export default function GallerySection({
                   type="button"
                   onClick={prevDesktop}
                   aria-label="Previous gallery slide"
-                  className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/75 text-2xl text-[#141414] shadow transition-colors hover:bg-white"
+                  className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/75 text-[#141414] shadow transition-colors hover:bg-white"
                 >
-                  ‹
+                  <ChevronLeft />
                 </button>
                 <button
                   type="button"
                   onClick={nextDesktop}
                   aria-label="Next gallery slide"
-                  className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/75 text-2xl text-[#141414] shadow transition-colors hover:bg-white"
+                  className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/75 text-[#141414] shadow transition-colors hover:bg-white"
                 >
-                  ›
+                  <ChevronRight />
                 </button>
               </>
             )}
@@ -277,26 +293,26 @@ export default function GallerySection({
             </div>
             <button
               onClick={prevMobile}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/75 rounded-full flex items-center justify-center shadow hover:bg-white transition-colors cursor-pointer text-[#141414] text-xl"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/75 rounded-full flex items-center justify-center shadow hover:bg-white transition-colors cursor-pointer text-[#141414]"
             >
-              ‹
+              <ChevronLeft />
             </button>
             <button
               onClick={nextMobile}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/75 rounded-full flex items-center justify-center shadow hover:bg-white transition-colors cursor-pointer text-[#141414] text-xl"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/75 rounded-full flex items-center justify-center shadow hover:bg-white transition-colors cursor-pointer text-[#141414]"
             >
-              ›
+              <ChevronRight />
             </button>
           </div>
 
           {/* Dots */}
-          <div className="flex gap-5 items-center py-2">
+          <div className="flex gap-2 sm:gap-3 items-center py-2 max-w-full overflow-hidden">
             {Array.from({ length: tabletPages }, (_, i) => (
               <button
                 key={i}
                 type="button"
                 onClick={() => setTabletPage(i)}
-                className={`hidden sm:block lg:hidden w-[10px] h-[10px] rounded-full bg-[#141414] transition-opacity cursor-pointer ${i === tabletPage ? "opacity-75" : "opacity-25"}`}
+                className={`hidden sm:block lg:hidden h-[3px] w-[32px] transition-colors cursor-pointer ${i === tabletPage ? "bg-[#141414]" : "bg-[#141414]/30"}`}
               />
             ))}
             {Array.from({ length: desktopPages }, (_, i) => (
@@ -304,7 +320,7 @@ export default function GallerySection({
                 key={`desktop-${i}`}
                 type="button"
                 onClick={() => setDesktopPage(i)}
-                className={`hidden lg:block w-[10px] h-[10px] rounded-full bg-[#141414] transition-opacity cursor-pointer ${i === desktopPage ? "opacity-75" : "opacity-25"}`}
+                className={`hidden lg:block h-[3px] w-[32px] transition-colors cursor-pointer ${i === desktopPage ? "bg-[#141414]" : "bg-[#141414]/30"}`}
               />
             ))}
             {gallery.map((_, i) => (
@@ -312,7 +328,7 @@ export default function GallerySection({
                 key={i}
                 type="button"
                 onClick={() => setMobileIdx(i)}
-                className={`sm:hidden w-[10px] h-[10px] rounded-full bg-[#141414] transition-opacity cursor-pointer ${i === mobileIdx ? "opacity-75" : "opacity-25"}`}
+                className={`sm:hidden h-[3px] w-[16px] transition-colors cursor-pointer ${i === mobileIdx ? "bg-[#141414]" : "bg-[#141414]/30"}`}
               />
             ))}
           </div>
@@ -373,18 +389,21 @@ export default function GallerySection({
             {lightbox + 1} / {gallery.length}
           </span>
           <button
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl z-10 transition-colors"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white z-10 transition-colors"
             onClick={(e) => {
               e.stopPropagation();
               prevLight();
             }}
           >
-            ‹
+            <ChevronLeft />
           </button>
           <div
             className="relative w-full h-full max-w-5xl max-h-[90vh] mx-16"
             onClick={(e) => e.stopPropagation()}
           >
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            </div>
             <Image
               key={lightbox}
               src={gallery[lightbox]}
@@ -397,13 +416,13 @@ export default function GallerySection({
             />
           </div>
           <button
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl z-10 transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white z-10 transition-colors"
             onClick={(e) => {
               e.stopPropagation();
               nextLight();
             }}
           >
-            ›
+            <ChevronRight />
           </button>
         </div>
       )}
