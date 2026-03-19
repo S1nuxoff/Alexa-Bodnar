@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* ── Local fonts ─────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Wamelo';
+  src: url('/fonts/Wamelo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Riccione-Xlight';
+  src: url('/fonts/Riccione-Xlight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Google Fonts vars (next/font injects these) ─────────── */
+
+@theme inline {
+  --font-label: var(--font-fira), sans-serif;
+  --font-sans: var(--font-open-sans), sans-serif;
+}
+
+/* ── Custom font utility classes ─────────────────────────── */
+
+.font-serif {
+  font-family: 'Riccione-Xlight', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Wamelo', cursive;
+}
+
+.font-cursive {
+  font-family: 'Wamelo', cursive;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #141414;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
