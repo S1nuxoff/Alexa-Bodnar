@@ -7,7 +7,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+# Keep a seed copy of uploads so they can be copied into the volume on first start
+RUN cp -r /app/uploads /app/uploads_seed
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 8000
 
-# Runs migrations then starts the server
-CMD ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+CMD ["/entrypoint.sh"]

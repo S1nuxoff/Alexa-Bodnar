@@ -26,9 +26,8 @@ frontend/.next/
 frontend/out/
 frontend/tsconfig.tsbuildinfo
 
-# ── Uploads (user media — store in a volume, not in git) ─────────────────────
-backend/uploads/*
-!backend/uploads/.gitkeep
+# ── Uploads (user media) ──────────────────────────────────────────────────────
+# tracked in git for initial seed; new uploads persist via Docker volume
 
 # ── Logs ─────────────────────────────────────────────────────────────────────
 *.log

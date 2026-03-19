@@ -9,8 +9,9 @@ Repository: monorepo, one GitHub repo for all services.
 
 | Field | Value |
 |-------|-------|
-| **Dockerfile Path** | `backend/Dockerfile` |
-| **Docker Context Path** | `backend` |
+| **Build Path** | `/backend` |
+| **Dockerfile Path** | `Dockerfile` |
+| **Docker Context Path** | `/backend` |
 | **Port** | `8000` |
 
 **Volume (обязательно):**
@@ -33,8 +34,9 @@ ADMIN_PASSWORD=...
 
 | Field | Value |
 |-------|-------|
-| **Dockerfile Path** | `frontend/Dockerfile` |
-| **Docker Context Path** | `frontend` |
+| **Build Path** | `/frontend` |
+| **Dockerfile Path** | `Dockerfile` |
+| **Docker Context Path** | `/frontend` |
 | **Port** | `3000` |
 
 **Environment variables:**
@@ -49,8 +51,9 @@ UPLOADS_ORIGIN=https://your-backend-domain.com
 
 | Field | Value |
 |-------|-------|
-| **Dockerfile Path** | `telegram-bot/Dockerfile` |
-| **Docker Context Path** | `telegram-bot` |
+| **Build Path** | `/telegram-bot` |
+| **Dockerfile Path** | `Dockerfile` |
+| **Docker Context Path** | `/telegram-bot` |
 | **Port** | — (не нужен) |
 
 **Environment variables:**
@@ -65,8 +68,9 @@ API_URL=https://your-backend-domain.com/api
 
 | Field | Value |
 |-------|-------|
-| **Dockerfile Path** | `email-service/Dockerfile` |
-| **Docker Context Path** | `email-service` |
+| **Build Path** | `/email-service` |
+| **Dockerfile Path** | `Dockerfile` |
+| **Docker Context Path** | `/email-service` |
 | **Port** | — (не нужен) |
 
 **Environment variables:**
